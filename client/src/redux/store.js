@@ -13,9 +13,15 @@ const initialState = {
   moviesNominated: localStorage.getItem("nominatedMovies")
     ? JSON.parse(localStorage.getItem("nominatedMovies"))
     : [],
-  activateHome: "linksWrap__link linksWrap__link--active",
-  activateResults: "linksWrap__link",
-  activateNominations: "linksWrap__link",
+  activateHome: localStorage.getItem("homeClass")
+    ? JSON.parse(localStorage.getItem("homeClass"))
+    : "linksWrap__link linksWrap__link--active",
+  activateResults: localStorage.getItem("resultsClass")
+    ? JSON.parse(localStorage.getItem("resultsClass"))
+    : "linksWrap__link",
+  activateNominations: localStorage.getItem("nominationsClass")
+    ? JSON.parse(localStorage.getItem("nominationsClass"))
+    : "linksWrap__link",
 };
 
 const reducer = combineReducers({

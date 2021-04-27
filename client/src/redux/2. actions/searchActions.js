@@ -63,47 +63,74 @@ export const removeNominatedMovie = (movie) => (dispatch, getState) => {
   );
 };
 
-export const activateHome = () => (dispatch) => {
+export const activateHome = () => (dispatch, getState) => {
   dispatch({
     type: ACTIVATE_HOME,
     payload: "linksWrap__link linksWrap__link--active",
   });
+  localStorage.setItem("homeClass", JSON.stringify(getState().activateHome));
   dispatch({
     type: ACTIVATE_RESULTS,
     payload: "linksWrap__link",
   });
+  localStorage.setItem(
+    "resultsClass",
+    JSON.stringify(getState().activateResults)
+  );
   dispatch({
     type: ACTIVATE_NOMINATIONS,
     payload: "linksWrap__link",
   });
+  localStorage.setItem(
+    "nominationsClass",
+    JSON.stringify(getState().activateNominations)
+  );
 };
 
-export const activateResults = () => (dispatch) => {
+export const activateResults = () => (dispatch, getState) => {
   dispatch({
     type: ACTIVATE_RESULTS,
     payload: "linksWrap__link linksWrap__link--active",
   });
+  localStorage.setItem(
+    "resultsClass",
+    JSON.stringify(getState().activateResults)
+  );
   dispatch({
     type: ACTIVATE_HOME,
     payload: "linksWrap__link",
   });
+  localStorage.setItem("homeClass", JSON.stringify(getState().activateHome));
   dispatch({
     type: ACTIVATE_NOMINATIONS,
     payload: "linksWrap__link",
   });
+  localStorage.setItem(
+    "nominationsClass",
+    JSON.stringify(getState().activateNominations)
+  );
 };
 
-export const activateNominations = () => (dispatch) => {
+export const activateNominations = () => (dispatch, getState) => {
   dispatch({
     type: ACTIVATE_NOMINATIONS,
     payload: "linksWrap__link linksWrap__link--active",
   });
+  localStorage.setItem(
+    "nominationsClass",
+    JSON.stringify(getState().activateNominations)
+  );
   dispatch({
     type: ACTIVATE_HOME,
     payload: "linksWrap__link",
   });
+  localStorage.setItem("homeClass", JSON.stringify(getState().activateHome));
   dispatch({
     type: ACTIVATE_RESULTS,
     payload: "linksWrap__link",
   });
+  localStorage.setItem(
+    "resultsClass",
+    JSON.stringify(getState().activateResults)
+  );
 };

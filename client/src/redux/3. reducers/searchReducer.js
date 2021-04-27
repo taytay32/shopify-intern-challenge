@@ -68,10 +68,6 @@ export const activateHomeReducer = (state = "", action) => {
   switch (action.type) {
     case ACTIVATE_HOME:
       return action.payload;
-    // case DEACTIVATE_RESULTS:
-    //   return action.payload;
-    // case DEACTIVATE_NOMINATIONS:
-    //   return action.payload;
     default:
       return state;
   }
@@ -82,10 +78,6 @@ export const activateResultsReducer = (state = "", action) => {
   switch (action.type) {
     case ACTIVATE_RESULTS:
       return action.payload;
-    // case DEACTIVATE_HOME:
-    //   return action.payload;
-    // case DEACTIVATE_NOMINATIONS:
-    //   return action.payload;
     default:
       return state;
   }
@@ -95,10 +87,7 @@ export const activateNominationsReducer = (state = "", action) => {
   switch (action.type) {
     case ACTIVATE_NOMINATIONS:
       return action.payload;
-    // case DEACTIVATE_RESULTS:
-    //   return action.payload;
-    // case DEACTIVATE_HOME:
-    //   return action.payload;
+
     default:
       return state;
   }

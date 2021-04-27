@@ -3,7 +3,6 @@ import "../../pages/Results/Results.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
   activateNominations,
-  activateResults,
   nominateMovie,
 } from "../../redux/2. actions/searchActions";
 import { Link } from "react-router-dom";
