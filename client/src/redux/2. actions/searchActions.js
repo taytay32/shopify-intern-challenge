@@ -5,6 +5,8 @@ import {
   SEARCH_CALL_REQUEST,
   SEARCH_CALL_SUCCESS,
   SEARCH_CALL_FAIL,
+  NOMINATE,
+  NOMINATE_REMOVE,
 } from "../1. constants/searchConstants";
 
 export const searchAction = (query) => (dispatch) => {
@@ -31,4 +33,29 @@ export const searchCallAction = (query) => async (dispatch) => {
       payload: error.message,
     });
   }
+};
+
+export const nominateMovie = (movie) => (dispatch, getState) => {
+  dispatch({
+    type: NOMINATE,
+    payload: movie,
+  });
+
+  console.log(movie);
+
+  localStorage.setItem(
+    "nominatedMovies",
+    JSON.stringify(getState().moviesNominated)
+  );
+};
+
+export const removeNominatedMovie = (movie) => (dispatch, getState) => {
+  dispatch({
+    type: NOMINATE_REMOVE,
+    payload: movie,
+  });
+  localStorage.setItem(
+    "nominatedMovies",
+    JSON.stringify(getState().moviesNominated)
+  );
 };

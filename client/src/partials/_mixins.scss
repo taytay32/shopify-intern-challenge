@@ -7,7 +7,10 @@
 }
 
 @mixin bg-image {
-  background: linear-gradient(rgba(154, 3, 31, 0.116), rgba(154, 3, 31, 0.123)),
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.671),
+      rgba(255, 255, 255, 0.521)
+    ),
     url("../assets/images/pexels-skitterphoto-390089.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,23 +23,20 @@
 @mixin M-page-header {
   font-family: "Caveat";
   font-size: 2.8rem;
-  line-height: 36px;
+  line-height: 3rem;
   font-weight: bold;
   color: $tyrian-purple;
 }
 
 @mixin M-subheader {
-  font-size: 2rem;
-  line-height: 28px;
+  font-size: 1.6rem;
   font-weight: bold;
   color: $midnight-green-eagle-green;
 }
 
-@mixin M-label-link-button {
+@mixin M-search-text {
   font-size: 1.3rem;
-  line-height: 20px;
-  font-weight: bold;
-  color: $primary-black;
+  color: $midnight-green-eagle-green;
 }
 
 @mixin M-table-header {
@@ -129,15 +129,30 @@
   }
 }
 
-@mixin button {
+@mixin search-button {
   background-color: transparent;
   outline: none;
   border: 1px solid $tyrian-purple;
+  border-radius: 2px;
   @include flex-center;
   padding: 0.3rem;
   background-color: $tyrian-purple;
   height: 3.6rem;
   width: 5rem;
+}
+
+@mixin button {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  height: 3.7rem;
+  background-color: $midnight-green-eagle-green;
+  outline: none;
+  border: 1px solid $midnight-green-eagle-green;
+  border-radius: 2px;
+  @include M-subheader;
+  color: $text-orange;
+  margin-bottom: 1rem;
 }
 
 //INPUTS

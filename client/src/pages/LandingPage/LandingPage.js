@@ -10,9 +10,13 @@ export default function LandingPage() {
         </h3>
         <h3 className="shoppies">The Shoppies!</h3> */}
         <ul className="directions">
-          <li className="directions__item">1. Search your favourite movies</li>
-          <li className="directions__item">2. Add them to the list</li>
-          <li className="directions__item">3. Edit list if need be</li>
+          <li className="directions__item">
+            1. Search for your favourite movies!
+          </li>
+          <li className="directions__item">
+            2. Add them to the list of nominations.
+          </li>
+          <li className="directions__item">3. Edit your list!</li>
         </ul>
       </div>
     </section>

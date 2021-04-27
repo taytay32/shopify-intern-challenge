@@ -29,6 +29,9 @@ export default function Header(props) {
 
   console.log("search results :", searchCall.movies);
 
+  const moviesNominated = useSelector((state) => state.moviesNominated);
+  const { nominatedMovies } = moviesNominated;
+
   return (
     <header className="header">
       <section className="header__container">
@@ -49,18 +52,22 @@ export default function Header(props) {
           </Link>
         </div>
         <div className="linksWrap">
-          <a
-            className="linksWrap__link linksWrap__link--active"
-            href="#results"
-          >
+          <Link to="/" className="linksWrap__link linksWrap__link--active">
             Home
-          </a>
-          <a className="linksWrap__link" href="#results">
+          </Link>
+          <Link to="/results" className="linksWrap__link">
             Results
-          </a>
-          <a className="linksWrap__link" href="#nominations">
-            Nominations
-          </a>
+          </Link>
+          {nominatedMovies.length > 0 ? (
+            <Link to="/nominations" className="linksWrap__link">
+              Nominations{" "}
+              <span className="numberBadge">{nominatedMovies.length}</span>
+            </Link>
+          ) : (
+            <Link to="/nominations" className="linksWrap__link">
+              Nominations
+            </Link>
+          )}
         </div>
       </section>
     </header>

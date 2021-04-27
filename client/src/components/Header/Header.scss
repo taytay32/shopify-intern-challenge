@@ -17,10 +17,11 @@
     @include flex-center;
     &__input {
       @include input-field;
+      @include M-search-text;
     }
 
     &__button {
-      @include button;
+      @include search-button;
     }
   }
 
@@ -38,7 +39,17 @@
       border-bottom: 2px solid transparent;
 
       &--active {
-        border-bottom: 2px solid $tyrian-purple;
+        border-bottom: 3px solid $midnight-green-eagle-green;
+      }
+
+      .numberBadge {
+        @include flex-center;
+        padding-left: 0.5rem;
+        padding-right: 1rem;
+        margin-left: 0.4rem;
+        border-radius: 50%;
+        background-color: white;
+        color: $midnight-green-eagle-green;
       }
     }
   }

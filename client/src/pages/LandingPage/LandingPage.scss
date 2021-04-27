@@ -3,8 +3,9 @@
 @import "../../partials/mixins";
 
 .LandingPage {
-  background-color: $midnight-green-light;
+  @include bg-image;
   height: 100%;
+
   .LandingPageWrap {
     width: 95%;
     margin: 0 auto;
@@ -34,8 +35,13 @@
       padding-top: 4rem;
 
       &__item {
-        color: $tyrian-purple;
-        padding: 0.3rem;
+        @include flex-center;
+        @include M-page-header;
+        font-family: "Titillium Web";
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        line-height: normal;
       }
     }
   }

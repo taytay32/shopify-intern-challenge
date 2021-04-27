@@ -2,7 +2,7 @@
 @import "../../partials/globals";
 @import "../../partials/mixins";
 
-.results {
+.nominations {
   background-color: $tyrian-purple;
   min-height: 100%;
   &__title {
@@ -11,31 +11,24 @@
     @include flex-center;
     padding-top: 2rem;
   }
-
-  &__loading,
-  &__error,
-  &__searchEmpty {
+  &__none {
     @include flex-center;
     @include M-page-header;
     font-family: "Titillium Web";
     font-size: 2rem;
+    padding: 1rem 2rem;
+    text-align: center;
     background-color: $text-orange;
     margin-top: 2rem;
     color: $midnight-green-eagle-green;
   }
-
-  &__error {
-    color: $text-orange;
-  }
-
-  .moviesContainer {
+  .nominationsContainer {
     padding: 2rem 0;
   }
 }
 
-.movie {
+.nomination {
   border: 1px solid $midnight-green-eagle-green;
-  border-radius: 2px;
   background-color: $text-orange;
   width: 27rem;
   margin: 0 auto;
@@ -64,6 +57,7 @@
   }
 
   &__poster {
+    // @include flex-center;
     height: 80%;
     width: 100%;
     object-fit: contain;

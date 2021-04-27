@@ -1,11 +1,21 @@
 import { applyMiddleware, createStore, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
-import { searchCallReducer, searchReducer } from "./3. reducers/searchReducer";
+import {
+  nominateMovieReducer,
+  searchCallReducer,
+  searchReducer,
+} from "./3. reducers/searchReducer";
 
-const initialState = {};
+const initialState = {
+  moviesNominated: localStorage.getItem("nominatedMovies")
+    ? JSON.parse(localStorage.getItem("nominatedMovies"))
+    : [],
+};
+
 const reducer = combineReducers({
   searchMovie: searchReducer,
   searchCall: searchCallReducer,
+  moviesNominated: nominateMovieReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
