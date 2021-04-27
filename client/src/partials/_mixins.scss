@@ -6,6 +6,16 @@
   justify-content: center;
 }
 
+@mixin bg-image {
+  background: linear-gradient(rgba(154, 3, 31, 0.116), rgba(154, 3, 31, 0.123)),
+    url("../assets/images/pexels-skitterphoto-390089.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100%;
+  padding-bottom: 2rem;
+}
+
 //MOBILE TEXTS
 @mixin M-page-header {
   font-family: "Caveat";
@@ -122,10 +132,10 @@
 @mixin button {
   background-color: transparent;
   outline: none;
-  border: none;
+  border: 1px solid $tyrian-purple;
   @include flex-center;
   padding: 0.3rem;
-  background-color: $tyrian-purple-border;
+  background-color: $tyrian-purple;
   height: 3.6rem;
   width: 5rem;
 }
@@ -136,12 +146,12 @@
   width: 75%;
   height: 3.6rem;
   border: 1px solid $tyrian-purple-border;
+  border-right: none;
   border-radius: 2px;
-
   padding: 0.7rem 0rem 0.9rem 1.6rem;
   transition: 0.2s;
   &:focus {
-    border-color: $primary-indigo;
+    border-color: $tyrian-purple;
   }
   @include tablet {
     margin-bottom: 2.4rem;

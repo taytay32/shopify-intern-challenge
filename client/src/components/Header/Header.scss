@@ -3,7 +3,7 @@
 @import "../../partials/mixins";
 
 .header {
-  background-color: white;
+  background-color: $light-orange;
   &__title {
     @include M-page-header;
     @include flex-center;
@@ -12,7 +12,6 @@
 
   .searchWrap {
     display: flex;
-
     height: 3.6rem;
     margin-bottom: 1rem;
     @include flex-center;
@@ -32,6 +31,7 @@
 
     &__link {
       @include M-page-header;
+      font-size: 2rem;
       width: 100%;
       @include flex-center;
       padding-bottom: 1rem;

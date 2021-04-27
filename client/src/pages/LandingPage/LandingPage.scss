@@ -1,0 +1,42 @@
+@import "../../partials/variables";
+@import "../../partials/globals";
+@import "../../partials/mixins";
+
+.LandingPage {
+  background-color: $midnight-green-light;
+  height: 100%;
+  .LandingPageWrap {
+    width: 95%;
+    margin: 0 auto;
+
+    &__Title {
+      @include M-subheader;
+      @include flex-center;
+      color: $tyrian-purple;
+      font-family: "Titillium Web";
+      padding-top: 2rem;
+    }
+    .shoppies {
+      @include M-subheader;
+      @include flex-center;
+      font-family: "Caveat";
+      color: $midnight-green-eagle-green;
+      font-size: 4rem;
+      padding: 1rem;
+      border-bottom: 1px solid $midnight-green-eagle-green;
+    }
+
+    .directions {
+      @include M-subheader;
+      color: $ruby-red;
+      @include flex-center;
+      flex-direction: column;
+      padding-top: 4rem;
+
+      &__item {
+        color: $tyrian-purple;
+        padding: 0.3rem;
+      }
+    }
+  }
+}
