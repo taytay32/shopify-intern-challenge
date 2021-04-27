@@ -1,0 +1,43 @@
+@use "./mixins" as *;
+
+.cell {
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1 1 0;
+    max-width: 11rem;
+  }
+
+  @include desktop {
+    max-width: none;
+  }
+
+  &--address {
+    @include desktop {
+      flex: 2 1 0;
+    }
+  }
+
+  &--contactInfo {
+    max-width: 13rem;
+    @include desktop {
+      max-width: none;
+    }
+  }
+
+  &--actions {
+    display: none;
+
+    @include tablet {
+      max-width: 8rem;
+      flex: 0.5 1 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @include desktop {
+      max-width: none;
+    }
+  }
+}

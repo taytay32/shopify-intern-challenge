@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function header() {
+export default function LandingPage() {
   return (
     <div>
-      <h1>Hey</h1>
+      <h1>Hello</h1>
     </div>
   );
 }

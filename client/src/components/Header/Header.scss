@@ -1,0 +1,45 @@
+@import "../../partials/variables";
+@import "../../partials/globals";
+@import "../../partials/mixins";
+
+.header {
+  background-color: white;
+  &__title {
+    @include M-page-header;
+    @include flex-center;
+    padding: 1rem 0;
+  }
+
+  .searchWrap {
+    display: flex;
+
+    height: 3.6rem;
+    margin-bottom: 1rem;
+    @include flex-center;
+    &__input {
+      @include input-field;
+    }
+
+    &__button {
+      @include button;
+    }
+  }
+
+  .linksWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__link {
+      @include M-page-header;
+      width: 100%;
+      @include flex-center;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid transparent;
+
+      &--active {
+        border-bottom: 2px solid $tyrian-purple;
+      }
+    }
+  }
+}
