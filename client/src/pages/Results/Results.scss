@@ -1,0 +1,58 @@
+@import "../../partials/variables";
+@import "../../partials/globals";
+@import "../../partials/mixins";
+
+.results {
+  &__title {
+    @include M-page-header;
+    color: $midnight-green-eagle-green;
+    @include flex-center;
+    padding-top: 2rem;
+  }
+
+  .moviesContainer {
+    padding: 2rem 0;
+  }
+}
+
+.movie {
+  border: 1px solid $midnight-green-eagle-green;
+  background-color: $light-orange;
+  width: 27rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+
+  &__info {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title,
+  &__year {
+    @include M-subheader;
+  }
+
+  &__poster {
+    height: 80%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__button {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    height: 3rem;
+    background-color: white;
+    outline: none;
+    border: 1px solid $midnight-green-eagle-green;
+    @include M-subheader;
+    color: $midnight-green-eagle-green;
+    margin-bottom: 1rem;
+  }
+}

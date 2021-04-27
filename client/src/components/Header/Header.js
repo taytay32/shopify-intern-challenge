@@ -1,28 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import magGlass from "../../assets/icons/search-24px.svg";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { API_URL, API_KEY } from "../../Utils";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  searchAction,
+  searchCallAction,
+} from "../../redux/2. actions/searchActions";
 
 export default function Header(props) {
   const [search, setSearch] = useState("");
-  const [data, setData] = useState([]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(searchAction(search));
+  }, [search, dispatch]);
+
+  const searchMovie = useSelector((state) => state.searchMovie);
+
+  console.log("search query: ", searchMovie);
 
   const searchForMovie = () => {
-    axios
-      .get(`${API_URL}${search}${API_KEY}`)
-      .then((res) => {
-        setData(res.data.Search);
-        setSearch("");
-      })
-      .catch((error) => {
-        console.log("Request failed");
-      });
+    dispatch(searchCallAction(searchMovie));
   };
 
-  console.log(data);
-  console.log(search);
+  const searchCall = useSelector((state) => state.searchCall);
+
+  console.log("search results :", searchCall.movies);
 
   return (
     <header className="header">
