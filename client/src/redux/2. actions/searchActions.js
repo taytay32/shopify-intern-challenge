@@ -7,6 +7,9 @@ import {
   SEARCH_CALL_FAIL,
   NOMINATE,
   NOMINATE_REMOVE,
+  ACTIVATE_HOME,
+  ACTIVATE_RESULTS,
+  ACTIVATE_NOMINATIONS,
 } from "../1. constants/searchConstants";
 
 export const searchAction = (query) => (dispatch) => {
@@ -58,4 +61,49 @@ export const removeNominatedMovie = (movie) => (dispatch, getState) => {
     "nominatedMovies",
     JSON.stringify(getState().moviesNominated)
   );
+};
+
+export const activateHome = () => (dispatch) => {
+  dispatch({
+    type: ACTIVATE_HOME,
+    payload: "linksWrap__link linksWrap__link--active",
+  });
+  dispatch({
+    type: ACTIVATE_RESULTS,
+    payload: "linksWrap__link",
+  });
+  dispatch({
+    type: ACTIVATE_NOMINATIONS,
+    payload: "linksWrap__link",
+  });
+};
+
+export const activateResults = () => (dispatch) => {
+  dispatch({
+    type: ACTIVATE_RESULTS,
+    payload: "linksWrap__link linksWrap__link--active",
+  });
+  dispatch({
+    type: ACTIVATE_HOME,
+    payload: "linksWrap__link",
+  });
+  dispatch({
+    type: ACTIVATE_NOMINATIONS,
+    payload: "linksWrap__link",
+  });
+};
+
+export const activateNominations = () => (dispatch) => {
+  dispatch({
+    type: ACTIVATE_NOMINATIONS,
+    payload: "linksWrap__link linksWrap__link--active",
+  });
+  dispatch({
+    type: ACTIVATE_HOME,
+    payload: "linksWrap__link",
+  });
+  dispatch({
+    type: ACTIVATE_RESULTS,
+    payload: "linksWrap__link",
+  });
 };

@@ -5,6 +5,9 @@ import {
   SEARCH_CALL_FAIL,
   NOMINATE,
   NOMINATE_REMOVE,
+  ACTIVATE_HOME,
+  ACTIVATE_RESULTS,
+  ACTIVATE_NOMINATIONS,
 } from "../1. constants/searchConstants";
 
 export const searchReducer = (state = "", action) => {
@@ -56,6 +59,46 @@ export const nominateMovieReducer = (
         }),
       };
 
+    default:
+      return state;
+  }
+};
+
+export const activateHomeReducer = (state = "", action) => {
+  switch (action.type) {
+    case ACTIVATE_HOME:
+      return action.payload;
+    // case DEACTIVATE_RESULTS:
+    //   return action.payload;
+    // case DEACTIVATE_NOMINATIONS:
+    //   return action.payload;
+    default:
+      return state;
+  }
+};
+
+export const activateResultsReducer = (state = "", action) => {
+  console.log(action.payload);
+  switch (action.type) {
+    case ACTIVATE_RESULTS:
+      return action.payload;
+    // case DEACTIVATE_HOME:
+    //   return action.payload;
+    // case DEACTIVATE_NOMINATIONS:
+    //   return action.payload;
+    default:
+      return state;
+  }
+};
+
+export const activateNominationsReducer = (state = "", action) => {
+  switch (action.type) {
+    case ACTIVATE_NOMINATIONS:
+      return action.payload;
+    // case DEACTIVATE_RESULTS:
+    //   return action.payload;
+    // case DEACTIVATE_HOME:
+    //   return action.payload;
     default:
       return state;
   }

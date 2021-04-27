@@ -4,38 +4,40 @@ import magGlass from "../../assets/icons/search-24px.svg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  activateHome,
+  activateNominations,
+  activateResults,
   searchAction,
   searchCallAction,
 } from "../../redux/2. actions/searchActions";
 
 export default function Header(props) {
   const [search, setSearch] = useState("");
-  const [home, setHome] = useState("linksWrap__link linksWrap__link--active");
-  const [results, setResults] = useState("linksWrap__link");
-  const [nominations, setNominations] = useState("linksWrap__link");
 
-  //ACTIVE LINK TOGGLERS
-  const activateHome = () => {
-    setHome("linksWrap__link linksWrap__link--active");
-    setResults("linksWrap__link");
-    setNominations("linksWrap__link");
+  const homeLink = useSelector((state) => state.activateHome);
+  console.log("home link: ", homeLink);
+
+  const resultsLink = useSelector((state) => state.activateResults);
+  console.log("results link: ", resultsLink);
+
+  const nominationsLink = useSelector((state) => state.activateNominations);
+  console.log("nom link: ", nominationsLink);
+
+  const dispatch = useDispatch();
+
+  const activateHomeLink = () => {
+    dispatch(activateHome());
   };
 
-  const activateResults = () => {
-    setResults("linksWrap__link linksWrap__link--active");
-    setHome("linksWrap__link");
-    setNominations("linksWrap__link");
+  const activateResultsLink = () => {
+    dispatch(activateResults());
   };
 
-  const activateNominations = () => {
-    setNominations("linksWrap__link linksWrap__link--active");
-    setResults("linksWrap__link");
-    setHome("linksWrap__link");
+  const activateNominationsLink = () => {
+    dispatch(activateNominations());
   };
 
   //SEARCH FUNCTIONALITY
-  const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(searchAction(search));
   }, [search, dispatch]);
@@ -58,7 +60,7 @@ export default function Header(props) {
   return (
     <header className="header">
       <section className="header__container">
-        <Link to="/" onClick={activateHome}>
+        <Link to="/" onClick={activateHomeLink}>
           <h1 className="header__title">The Shoppies</h1>
         </Link>
         <div className="searchWrap">
@@ -68,24 +70,28 @@ export default function Header(props) {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <Link to="/results">
+          <Link to="/results" onClick={activateResultsLink}>
             <button className="searchWrap__button" onClick={searchForMovie}>
               <img src={magGlass} alt="Search" />
             </button>
           </Link>
         </div>
         <div className="linksWrap">
-          <Link to="/" className={home} onClick={activateHome}>
+          <Link to="/" className={homeLink} onClick={activateHomeLink}>
             Home
           </Link>
-          <Link to="/results" className={results} onClick={activateResults}>
+          <Link
+            to="/results"
+            className={resultsLink}
+            onClick={activateResultsLink}
+          >
             Results
           </Link>
           {nominatedMovies.length > 0 ? (
             <Link
               to="/nominations"
-              className={nominations}
-              onClick={activateNominations}
+              className={nominationsLink}
+              onClick={activateNominationsLink}
             >
               Nominations{" "}
               <span className="numberBadge">{nominatedMovies.length}</span>
@@ -93,8 +99,8 @@ export default function Header(props) {
           ) : (
             <Link
               to="/nominations"
-              className={nominations}
-              onClick={activateNominations}
+              className={nominationsLink}
+              onClick={activateNominationsLink}
             >
               Nominations
             </Link>
