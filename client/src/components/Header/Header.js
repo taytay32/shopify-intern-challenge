@@ -10,7 +10,30 @@ import {
 
 export default function Header(props) {
   const [search, setSearch] = useState("");
+  const [home, setHome] = useState("linksWrap__link linksWrap__link--active");
+  const [results, setResults] = useState("linksWrap__link");
+  const [nominations, setNominations] = useState("linksWrap__link");
 
+  //ACTIVE LINK TOGGLERS
+  const activateHome = () => {
+    setHome("linksWrap__link linksWrap__link--active");
+    setResults("linksWrap__link");
+    setNominations("linksWrap__link");
+  };
+
+  const activateResults = () => {
+    setResults("linksWrap__link linksWrap__link--active");
+    setHome("linksWrap__link");
+    setNominations("linksWrap__link");
+  };
+
+  const activateNominations = () => {
+    setNominations("linksWrap__link linksWrap__link--active");
+    setResults("linksWrap__link");
+    setHome("linksWrap__link");
+  };
+
+  //SEARCH FUNCTIONALITY
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,7 +58,7 @@ export default function Header(props) {
   return (
     <header className="header">
       <section className="header__container">
-        <Link to="/">
+        <Link to="/" onClick={activateHome}>
           <h1 className="header__title">The Shoppies</h1>
         </Link>
         <div className="searchWrap">
@@ -52,19 +75,27 @@ export default function Header(props) {
           </Link>
         </div>
         <div className="linksWrap">
-          <Link to="/" className="linksWrap__link linksWrap__link--active">
+          <Link to="/" className={home} onClick={activateHome}>
             Home
           </Link>
-          <Link to="/results" className="linksWrap__link">
+          <Link to="/results" className={results} onClick={activateResults}>
             Results
           </Link>
           {nominatedMovies.length > 0 ? (
-            <Link to="/nominations" className="linksWrap__link">
+            <Link
+              to="/nominations"
+              className={nominations}
+              onClick={activateNominations}
+            >
               Nominations{" "}
               <span className="numberBadge">{nominatedMovies.length}</span>
             </Link>
           ) : (
-            <Link to="/nominations" className="linksWrap__link">
+            <Link
+              to="/nominations"
+              className={nominations}
+              onClick={activateNominations}
+            >
               Nominations
             </Link>
           )}
