@@ -4,7 +4,17 @@ import {
   SEARCH_CALL_FAIL,
   NOMINATE,
   NOMINATE_REMOVE,
+  SEARCH,
 } from "../1. constants/searchConstants";
+
+export const searchQueryReducer = (state = "", action) => {
+  switch (action.type) {
+    case SEARCH:
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 export const searchCallReducer = (state = { movies: [] }, action) => {
   switch (action.type) {

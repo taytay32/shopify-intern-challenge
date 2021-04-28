@@ -11,8 +11,8 @@
 
     &__title {
       @include M-page-header;
-      font-family: "Source Sans Pro";
-      font-weight: 600;
+      font-family: "Caveat";
+      font-size: 3rem;
       color: $text-orange;
       @include flex-center;
       padding-top: 3rem;

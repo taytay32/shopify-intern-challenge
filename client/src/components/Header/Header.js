@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import magGlass from "../../assets/icons/search-24px.svg";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { searchCallAction } from "../../redux/2. actions/searchActions";
+import {
+  searchCallAction,
+  searchQuery,
+} from "../../redux/2. actions/searchActions";
 
-export default function Header(props) {
+const Header = (props) => {
   const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
@@ -14,13 +17,13 @@ export default function Header(props) {
     dispatch(searchCallAction(search));
   };
 
-  // console.log(search);
-
-  // const searchCall = useSelector((state) => state.searchCall);
-  // // console.log("search results :", searchCall.movies);
+  useEffect(() => {
+    dispatch(searchQuery(search));
+  }, [search, dispatch]);
 
   const moviesNominated = useSelector((state) => state.moviesNominated);
   const { nominatedMovies } = moviesNominated;
+  console.log(nominatedMovies);
 
   return (
     <header className="header">
@@ -81,4 +84,6 @@ export default function Header(props) {
       </section>
     </header>
   );
-}
+};
+
+export default Header;

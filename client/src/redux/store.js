@@ -3,16 +3,19 @@ import thunk from "redux-thunk";
 import {
   nominateMovieReducer,
   searchCallReducer,
+  searchQueryReducer,
 } from "./3. reducers/searchReducer";
 
 const initialState = {
-  moviesNominated: localStorage.getItem("nominatedMovies")
-    ? JSON.parse(localStorage.getItem("nominatedMovies"))
-    : [],
+  moviesNominated: {
+    nominatedMovies: localStorage.getItem("nominatedMovies")
+      ? JSON.parse(localStorage.getItem("nominatedMovies"))
+      : [],
+  },
 };
 
 const reducer = combineReducers({
-  // searchMovie: searchReducer,
+  searchQ: searchQueryReducer,
   searchCall: searchCallReducer,
   moviesNominated: nominateMovieReducer,
 });

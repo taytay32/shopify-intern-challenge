@@ -1,30 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import uuid from "react-uuid";
 import Movie from "../../components/Movie/Movie";
 import "./Results.scss";
 
 export default function Results() {
+  // const [filteredMovies, setFilteredMovies] = useState([]);
   //PULLING FROM STATE
   const searchCall = useSelector((state) => state.searchCall);
   let { loading, error, movies } = searchCall;
   const moviesNominated = useSelector((state) => state.moviesNominated);
+  const { nominatedMovies = [] } = moviesNominated;
+
+  // const searchQuery = useSelector((state) => state.searchQ);
+  // console.log(searchQuery);
 
   //FILTERING NOMINATIONS FROM SEARCH RESULTS
   let notNominated = [];
   if (movies) {
     for (const movie of movies) {
-      const nominatedMovie = moviesNominated.nominatedMovies.find(
-        (nomMovie) => {
-          return nomMovie.Title === movie.Title;
-        }
-      );
+      const nominatedMovie = nominatedMovies.find((nomMovie) => {
+        return nomMovie.Title === movie.Title;
+      });
       if (!nominatedMovie) {
         notNominated.push(movie);
       }
     }
   }
   movies = [...notNominated];
+
+  // FILTER BY MODIFYING SEARCH RESULTS
+  // useEffect(() => {
+  //   if (movies) {
+  //     setFilteredMovies(
+  //       movies.filter((movie) => {
+  //         return movie.Title.toLowerCase().includes(searchQuery.toLowerCase());
+  //       })
+  //     );
+  //   }
+  // }, [searchQuery, movies]);
+
+  // console.log(filteredMovies);
 
   return (
     <section className="results">
