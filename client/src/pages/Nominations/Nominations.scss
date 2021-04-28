@@ -5,6 +5,43 @@
 .nominations {
   background-color: $tyrian-purple;
   min-height: 100%;
+
+  .notification {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.89);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position: fixed;
+    @include flex-center;
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(95, 15, 64, 0.733);
+      padding: 1rem 0;
+      position: relative;
+      top: -18.4rem;
+    }
+
+    &__blurb {
+      @include M-page-header;
+      color: $text-orange;
+      text-align: center;
+
+      padding: 2rem;
+      // margin-bottom: 2rem;
+    }
+
+    &__btn {
+      @include button;
+      width: 80%;
+    }
+  }
   &__title {
     @include M-page-header;
     color: $text-orange;
@@ -14,7 +51,7 @@
   &__none {
     @include flex-center;
     @include M-page-header;
-    font-family: "Titillium Web";
+    font-family: "Source Sans Pro";
     font-size: 2rem;
     padding: 1rem 2rem;
     text-align: center;

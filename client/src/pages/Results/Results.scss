@@ -17,11 +17,13 @@
   &__searchEmpty {
     @include flex-center;
     @include M-page-header;
-    font-family: "Titillium Web";
+    font-family: "Source Sans Pro";
+    font-weight: 600;
     font-size: 2rem;
     background-color: $text-orange;
     margin-top: 2rem;
     color: $midnight-green-eagle-green;
+    padding: 1rem;
   }
 
   &__error {

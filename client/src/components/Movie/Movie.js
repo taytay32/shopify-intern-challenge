@@ -1,24 +1,14 @@
 import React from "react";
 import "../../pages/Results/Results.scss";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  activateNominations,
-  nominateMovie,
-} from "../../redux/2. actions/searchActions";
+import { useDispatch } from "react-redux";
+import { nominateMovie } from "../../redux/2. actions/searchActions";
 import { Link } from "react-router-dom";
 
 export default function Movie({ movie }) {
-  console.log(movie);
+  // console.log(movie);
   const dispatch = useDispatch();
   const nominate = () => {
     dispatch(nominateMovie(movie));
-  };
-
-  const moviesNominated = useSelector((state) => state.moviesNominated);
-  console.log(moviesNominated);
-
-  const activateNominationsLink = () => {
-    dispatch(activateNominations());
   };
 
   return (
@@ -29,7 +19,7 @@ export default function Movie({ movie }) {
         <h2 className="movie__title">{movie.Title}</h2>
         <h2 className="movie__year">{movie.Year}</h2>
       </div>
-      <Link to="/nominations" onClick={activateNominationsLink}>
+      <Link to="/nominations">
         <button className="movie__button" onClick={nominate}>
           NOMINATE
         </button>

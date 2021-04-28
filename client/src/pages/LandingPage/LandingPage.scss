@@ -4,40 +4,32 @@
 
 .LandingPage {
   @include bg-image;
-  height: 100%;
 
   .LandingPageWrap {
     width: 95%;
     margin: 0 auto;
 
-    &__Title {
-      @include M-subheader;
+    &__title {
+      @include M-page-header;
+      font-family: "Source Sans Pro";
+      font-weight: 600;
+      color: $text-orange;
       @include flex-center;
-      color: $tyrian-purple;
-      font-family: "Titillium Web";
-      padding-top: 2rem;
-    }
-    .shoppies {
-      @include M-subheader;
-      @include flex-center;
-      font-family: "Caveat";
-      color: $midnight-green-eagle-green;
-      font-size: 4rem;
-      padding: 1rem;
-      border-bottom: 1px solid $midnight-green-eagle-green;
+      padding-top: 3rem;
     }
 
     .directions {
       @include M-subheader;
-      color: $ruby-red;
       @include flex-center;
       flex-direction: column;
-      padding-top: 4rem;
+      padding-top: 2rem;
 
       &__item {
         @include flex-center;
         @include M-page-header;
-        font-family: "Titillium Web";
+        font-family: "Source Sans Pro";
+        font-weight: normal;
+        color: $text-orange;
         font-size: 2rem;
         padding: 1rem 2rem;
         text-align: center;

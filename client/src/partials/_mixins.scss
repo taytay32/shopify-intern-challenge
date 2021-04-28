@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./typography";
 
 @mixin flex-center {
   display: flex;
@@ -7,15 +8,12 @@
 }
 
 @mixin bg-image {
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.671),
-      rgba(255, 255, 255, 0.521)
-    ),
-    url("../assets/images/pexels-skitterphoto-390089.jpg");
+  background: linear-gradient(rgba(95, 15, 64, 0.829), rgba(95, 15, 64, 0.562)),
+    url("../assets/images/curtain.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 100%;
+  height: 100%;
   padding-bottom: 2rem;
 }
 
@@ -29,6 +27,7 @@
 }
 
 @mixin M-subheader {
+  font-family: "Source Sans Pro";
   font-size: 1.6rem;
   font-weight: bold;
   color: $midnight-green-eagle-green;

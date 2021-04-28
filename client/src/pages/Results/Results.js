@@ -5,21 +5,35 @@ import Movie from "../../components/Movie/Movie";
 import "./Results.scss";
 
 export default function Results() {
+  //PULLING FROM STATE
   const searchCall = useSelector((state) => state.searchCall);
-  const { loading, error, movies } = searchCall;
-  console.log("search results :", searchCall.movies);
-  console.log(movies);
-
-  const searchMovie = useSelector((state) => state.searchMovie);
-
+  let { loading, error, movies } = searchCall;
   const moviesNominated = useSelector((state) => state.moviesNominated);
-  console.log(moviesNominated);
+
+  //FILTERING NOMINATIONS FROM SEARCH RESULTS
+  let notNominated = [];
+  if (movies) {
+    for (const movie of movies) {
+      const nominatedMovie = moviesNominated.nominatedMovies.find(
+        (nomMovie) => {
+          return nomMovie.Title === movie.Title;
+        }
+      );
+      if (!nominatedMovie) {
+        notNominated.push(movie);
+      }
+    }
+  }
+  movies = [...notNominated];
 
   return (
     <section className="results">
       <h1 className="results__title">Search Results</h1>
-      {searchMovie === "" ? (
-        <p className="results__searchEmpty">Don't forget to enter a search!</p>
+
+      {!movies || movies.length === 0 ? (
+        <p className="results__searchEmpty">
+          Afraid there are no movies by that title!
+        </p>
       ) : loading ? (
         <p className="results__loading">Loading...</p>
       ) : error ? (
@@ -27,9 +41,10 @@ export default function Results() {
       ) : (
         <>
           <div className="moviesContainer">
-            {movies.map((movie) => {
-              return <Movie movie={movie} key={uuid()} />;
-            })}
+            {movies &&
+              movies.map((movie) => {
+                return <Movie movie={movie} key={uuid()} />;
+              })}
           </div>
         </>
       )}
