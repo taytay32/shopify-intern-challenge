@@ -18,6 +18,9 @@ export default function MoviePage(props) {
   const movieSelected = useSelector((state) => state.movieSelected);
   const { loading, movie, error } = movieSelected;
 
+  const moviesNominated = useSelector((state) => state.moviesNominated);
+  const { nominatedMovies } = moviesNominated;
+
   const nominate = () => {
     dispatch(nominateMovie(movie));
   };
@@ -59,12 +62,16 @@ export default function MoviePage(props) {
                   <strong>Plot: </strong>
                   {movie.Plot}
                 </p>
-
-                <Link to="/nominations" className="link">
-                  <button className="movieContainer__button" onClick={nominate}>
-                    NOMINATE
-                  </button>
-                </Link>
+                {nominatedMovies < 5 ? (
+                  <Link to="/nominations" className="link">
+                    <button
+                      className="movieContainer__button"
+                      onClick={nominate}
+                    >
+                      NOMINATE
+                    </button>
+                  </Link>
+                ) : null}
                 <button className="movieContainer__button" onClick={goBack}>
                   BACK TO RESULTS
                 </button>
