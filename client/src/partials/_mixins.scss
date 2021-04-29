@@ -138,6 +138,11 @@
   background-color: $tyrian-purple;
   height: 3.6rem;
   width: 5rem;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: $midnight-green-eagle-green;
+  }
 }
 
 @mixin button {
@@ -166,10 +171,6 @@
   transition: 0.2s;
   &:focus {
     border-color: $tyrian-purple;
-  }
-  @include tablet {
-    margin-bottom: 2.4rem;
-    height: 3.8rem;
   }
 }
 

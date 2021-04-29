@@ -29,7 +29,7 @@ const Header = (props) => {
   return (
     <header className="header">
       <section className="header__container">
-        <Link to="/">
+        <Link to="/" className="header__titleLink">
           <h1 className="header__title">The Shoppies</h1>
         </Link>
         <div className="searchWrap">
@@ -51,7 +51,7 @@ const Header = (props) => {
           <NavLink
             exact
             to="/"
-            className="linksWrap__link"
+            className="linksWrap__link linksWrap__linkHome"
             activeClassName="linksWrap__link--active"
           >
             Home
