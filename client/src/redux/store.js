@@ -1,6 +1,7 @@
 import { applyMiddleware, createStore, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import {
+  movieDetailsReducer,
   nominateMovieReducer,
   searchCallReducer,
   searchQueryReducer,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   searchQ: searchQueryReducer,
   searchCall: searchCallReducer,
   moviesNominated: nominateMovieReducer,
+  movieSelected: movieDetailsReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

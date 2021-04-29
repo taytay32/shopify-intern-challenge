@@ -4,7 +4,7 @@ import uuid from "react-uuid";
 import Nomination from "../../components/Nomination/Nomination";
 import "./Nominations.scss";
 
-export default function Results() {
+export default function Results(props) {
   const [modal, setModal] = useState(true);
 
   const moviesNominated = useSelector((state) => state.moviesNominated);
@@ -14,6 +14,10 @@ export default function Results() {
 
   const removeNotification = () => {
     setModal(false);
+  };
+
+  const goBack = () => {
+    props.history.goBack();
   };
 
   let notification;
@@ -55,6 +59,9 @@ export default function Results() {
           </div>
         </>
       )}
+      <button className="nomination__backButton" onClick={goBack}>
+        BACK TO RESULTS
+      </button>
     </section>
   );
 }

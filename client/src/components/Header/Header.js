@@ -17,6 +17,12 @@ const Header = (props) => {
     dispatch(searchCallAction(search));
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      dispatch(searchCallAction(search));
+    }
+  };
+
   useEffect(() => {
     dispatch(searchQuery(search));
   }, [search, dispatch]);
@@ -38,6 +44,7 @@ const Header = (props) => {
             className="searchWrap__input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
 
           <Link to="/results">

@@ -5,6 +5,7 @@
 .nominations {
   background-color: $tyrian-purple;
   min-height: 100%;
+  padding-bottom: 2rem;
 
   .notification {
     position: absolute;
@@ -47,12 +48,16 @@
     color: $text-orange;
     @include flex-center;
     padding-top: 2rem;
+    @include tablet {
+      @include T-page-header;
+      color: $text-orange;
+    }
   }
   &__none {
     @include flex-center;
     @include M-page-header;
     font-family: "Source Sans Pro";
-    font-weight: 600;
+    font-weight: normal;
     font-size: 2rem;
     padding: 1rem 2rem;
     text-align: center;
@@ -61,7 +66,16 @@
     color: $midnight-green-eagle-green;
   }
   .nominationsContainer {
-    padding: 2rem 0;
+    padding: 2rem 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    @include tablet {
+      padding: 2rem 2rem;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
   }
 }
 
@@ -69,8 +83,7 @@
   border: 1px solid $midnight-green-eagle-green;
   background-color: $text-orange;
   width: 27rem;
-  margin: 0 auto;
-  margin-bottom: 2rem;
+  margin: 0 1rem 2rem;
 
   &__info {
     display: flex;
@@ -103,5 +116,18 @@
 
   &__button {
     @include button;
+  }
+
+  &__backButton {
+    @include button;
+    background-color: $text-orange;
+    width: 27rem;
+    color: $tyrian-purple;
+    height: 4rem;
+
+    &:hover {
+      background-color: $midnight-green-eagle-green;
+      color: $text-orange;
+    }
   }
 }

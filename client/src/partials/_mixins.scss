@@ -131,7 +131,7 @@
 @mixin search-button {
   background-color: transparent;
   outline: none;
-  border: 1px solid $tyrian-purple;
+  border: none;
   border-radius: 2px;
   @include flex-center;
   padding: 0.3rem;
@@ -139,7 +139,7 @@
   height: 3.6rem;
   width: 5rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
   &:hover {
     background-color: $midnight-green-eagle-green;
   }
@@ -157,6 +157,11 @@
   @include M-subheader;
   color: $text-orange;
   margin-bottom: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: $tyrian-purple;
+  }
 }
 
 //INPUTS

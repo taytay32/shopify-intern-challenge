@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_KEY, API_URL } from "../../Utils";
+import { API_KEY, API_URL, API_URL_ID } from "../../Utils";
 import {
   SEARCH,
   SEARCH_CALL_REQUEST,
@@ -7,6 +7,9 @@ import {
   SEARCH_CALL_FAIL,
   NOMINATE,
   NOMINATE_REMOVE,
+  MOVIE_DETAILS_REQUEST,
+  MOVIE_DETAILS_SUCCESS,
+  MOVIE_DETAILS_FAIL,
 } from "../1. constants/searchConstants";
 
 //SETTING SEARCH QUERY TO STATE
@@ -63,4 +66,25 @@ export const removeNominatedMovie = (movie) => (dispatch, getState) => {
     "nominatedMovies",
     JSON.stringify(getState().moviesNominated.nominatedMovies)
   );
+};
+
+//GET MOVIE DETAILS
+export const movieDetails = (imdbID) => async (dispatch) => {
+  dispatch({
+    type: MOVIE_DETAILS_REQUEST,
+  });
+  try {
+    const { data } = await axios.get(`${API_URL_ID}${imdbID}${API_KEY}`);
+    console.log(data);
+
+    dispatch({
+      type: MOVIE_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: MOVIE_DETAILS_FAIL,
+      payload: error.message,
+    });
+  }
 };

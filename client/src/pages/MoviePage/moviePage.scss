@@ -1,0 +1,103 @@
+@import "../../partials/variables";
+@import "../../partials/globals";
+@import "../../partials/mixins";
+
+.moviePage {
+  background-color: $tyrian-purple;
+  min-height: 100%;
+
+  &__loading,
+  &__error,
+  &__searchEmpty {
+    @include flex-center;
+    @include M-page-header;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    font-size: 2rem;
+    background-color: $text-orange;
+    margin-top: 2rem;
+    color: $midnight-green-eagle-green;
+    padding: 1rem;
+  }
+
+  &__error {
+    color: $text-orange;
+  }
+
+  &__title {
+    @include M-page-header;
+    color: $text-orange;
+    text-align: center;
+    padding: 1rem 0;
+
+    @include tablet {
+      @include T-page-header;
+      color: $text-orange;
+    }
+  }
+
+  &__year {
+    @include M-page-header;
+    font-family: "Source Sans Pro";
+    color: $text-orange;
+    font-weight: normal;
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  &__wrap {
+    padding: 2rem;
+
+    .movieContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $midnight-green-eagle-green;
+      border-radius: 2px;
+      background-color: $text-orange;
+      width: 30rem;
+      margin: 0 auto;
+
+      @include tablet {
+        flex-direction: row;
+        width: 90%;
+        max-width: 80rem;
+      }
+
+      &__img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+
+        @include tablet {
+          padding: 1rem 1.5rem;
+        }
+      }
+
+      &__blurb {
+        @include M-page-header;
+        font-family: "Source Sans Pro";
+        font-weight: normal;
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0 1rem 1rem;
+      }
+      .link {
+        width: 100%;
+      }
+
+      &__button {
+        @include button;
+      }
+    }
+  }
+}
