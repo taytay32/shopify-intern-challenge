@@ -8,13 +8,10 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Movie({ movie }) {
-  // console.log(movie);
   const dispatch = useDispatch();
   const nominate = () => {
     dispatch(nominateMovie(movie));
   };
-
-  console.log(movie.imdbID);
 
   const details = () => {
     dispatch(movieDetails(movie.imdbID));

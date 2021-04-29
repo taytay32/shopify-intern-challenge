@@ -27,7 +27,6 @@ export const searchCallAction = (query) => async (dispatch) => {
   });
   try {
     const { data } = await axios.get(`${API_URL}${query}${API_KEY}`);
-    console.log(data.Search);
 
     dispatch({
       type: SEARCH_CALL_SUCCESS,
@@ -48,8 +47,6 @@ export const nominateMovie = (movie) => (dispatch, getState) => {
     payload: movie,
   });
 
-  console.log(movie);
-
   localStorage.setItem(
     "nominatedMovies",
     JSON.stringify(getState().moviesNominated.nominatedMovies)
@@ -68,14 +65,13 @@ export const removeNominatedMovie = (movie) => (dispatch, getState) => {
   );
 };
 
-//GET MOVIE DETAILS
+//GET SELECTED MOVIE DETAILS
 export const movieDetails = (imdbID) => async (dispatch) => {
   dispatch({
     type: MOVIE_DETAILS_REQUEST,
   });
   try {
     const { data } = await axios.get(`${API_URL_ID}${imdbID}${API_KEY}`);
-    console.log(data);
 
     dispatch({
       type: MOVIE_DETAILS_SUCCESS,

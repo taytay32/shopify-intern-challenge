@@ -38,82 +38,11 @@
   color: $midnight-green-eagle-green;
 }
 
-@mixin M-table-header {
-  font-size: 1.1rem;
-  line-height: 16px;
-  color: $secondary-slate;
-  font-weight: bold;
-}
-
-@mixin M-body-large {
-  font-size: 1.5rem;
-  line-height: 26px;
-  color: $primary-black;
-  font-weight: normal;
-}
-
-@mixin M-body-medium {
-  font-size: 1.3rem;
-  line-height: 20px;
-  color: $primary-black;
-  font-weight: normal;
-}
-
-@mixin M-body-small {
-  font-size: 1.1rem;
-  line-height: 16px;
-  color: $primary-black;
-  font-weight: normal;
-}
-
 //TABLET/DESKTOP TEXTS
 @mixin T-page-header {
   font-size: 3.2rem;
   line-height: 40px;
   font-weight: bold;
-  color: $primary-black;
-}
-
-@mixin T-subheader {
-  font-size: 2.4rem;
-  line-height: 32px;
-  font-weight: bold;
-  color: $primary-black;
-}
-
-@mixin T-label-link-button {
-  font-size: 1.4rem;
-  line-height: 22px;
-  font-weight: bold;
-  color: $primary-black;
-}
-
-@mixin T-table-header {
-  font-size: 1.2rem;
-  line-height: 18px;
-  color: $secondary-slate;
-  font-weight: bold;
-}
-
-@mixin T-body-large {
-  font-size: 1.6rem;
-  line-height: 28px;
-  color: $primary-black;
-  font-weight: normal;
-}
-
-@mixin T-body-medium {
-  font-size: 1.4rem;
-  line-height: 22px;
-  color: $primary-black;
-  font-weight: normal;
-}
-
-@mixin T-body-small {
-  font-size: 1.2rem;
-  line-height: 18px;
-  color: $primary-black;
-  font-weight: normal;
 }
 
 @mixin tablet {
@@ -176,22 +105,5 @@
   transition: 0.2s;
   &:focus {
     border-color: $tyrian-purple;
-  }
-}
-
-@mixin input-error {
-  width: 100%;
-  height: 36px;
-  border: 1px solid red;
-  border-radius: 20px;
-  margin-bottom: 0;
-  padding: 0.7rem 0rem 0.9rem 1.6rem;
-  transition: 0.2s;
-  &:focus {
-    border-color: $misc-red;
-  }
-  @include tablet {
-    margin-bottom: 0;
-    height: 38px;
   }
 }

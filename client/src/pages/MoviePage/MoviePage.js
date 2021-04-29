@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 import {
   movieDetails,
   nominateMovie,
-  searchCallAction,
 } from "../../redux/2. actions/searchActions";
 import "./moviePage.scss";
 
 export default function MoviePage(props) {
   const movieID = props.match.params.id;
-  console.log(movieID);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +17,6 @@ export default function MoviePage(props) {
 
   const movieSelected = useSelector((state) => state.movieSelected);
   const { loading, movie, error } = movieSelected;
-  console.log(movie);
 
   const nominate = () => {
     dispatch(nominateMovie(movie));

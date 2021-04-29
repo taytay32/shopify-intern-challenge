@@ -11,12 +11,10 @@ export default function Results() {
   const searchCall = useSelector((state) => state.searchCall);
   let { loading, error, movies } = searchCall;
   const moviesNominated = useSelector((state) => state.moviesNominated);
-  // console.log(moviesNominated);
+
   const { nominatedMovies } = moviesNominated;
-  // console.log(nominatedMovies);
 
   const searchQuery = useSelector((state) => state.searchQ);
-  // console.log(searchQuery);
 
   // LOAD SEARCH FROM API
   useEffect(() => {
@@ -47,36 +45,6 @@ export default function Results() {
       }
     }
   }, [filteredMovies, nominatedMovies]);
-
-  console.log("filtered movies: ", filteredMovies);
-  console.log("not nominated: ", notNominated);
-
-  // let notNominated = [];
-  // if (movies) {
-  //   for (const movie of movies) {
-  //     const nominatedMovie = nominatedMovies.find((nomMovie) => {
-  //       return nomMovie.Title === movie.Title;
-  //     });
-  //     if (!nominatedMovie) {
-  //       notNominated.push(movie);
-  //     }
-  //   }
-  // }
-  // movies = [...notNominated];
-  // console.log(movies);
-
-  // // FILTER BY MODIFYING SEARCH RESULTS
-  // useEffect(() => {
-  //   if (movies) {
-  //     setFilteredMovies(
-  //       movies.filter((movie) => {
-  //         return movie.Title.toLowerCase().includes(searchQuery.toLowerCase());
-  //       })
-  //     );
-  //   }
-  // }, [searchQuery, movies]);
-
-  // console.log(filteredMovies);
 
   return (
     <section className="results">
