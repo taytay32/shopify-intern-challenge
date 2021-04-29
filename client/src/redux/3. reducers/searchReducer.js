@@ -34,12 +34,12 @@ export const nominateMovieReducer = (
   action
 ) => {
   // console.log(action.payload);
-  console.log(state);
+  // console.log(state);
 
   switch (action.type) {
     case NOMINATE:
       const addedMovie = action.payload;
-      console.log(state);
+      // console.log(state);
       // let newArray = [...state.nominatedMovies, addedMovie];
       // console.log(newArray);
       // return newArray;
@@ -50,8 +50,8 @@ export const nominateMovieReducer = (
       };
 
     case NOMINATE_REMOVE:
-      console.log("are we here?");
-      console.log(state.nominatedMovies);
+      // console.log("are we here?");
+      // console.log(state.nominatedMovies);
       return {
         ...state,
         nominatedMovies: state.nominatedMovies.filter((movie) => {

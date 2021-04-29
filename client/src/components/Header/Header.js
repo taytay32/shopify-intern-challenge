@@ -22,9 +22,9 @@ const Header = (props) => {
   }, [search, dispatch]);
 
   const moviesNominated = useSelector((state) => state.moviesNominated);
-  console.log(moviesNominated);
+  // console.log(moviesNominated);
   const { nominatedMovies } = moviesNominated;
-  console.log(nominatedMovies);
+  // console.log(nominatedMovies);
 
   return (
     <header className="header">
