@@ -1,6 +1,6 @@
 import React from "react";
 import "../../pages/Results/Results.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   nominateMovie,
   movieDetails,
@@ -8,6 +8,9 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Movie({ movie }) {
+  const moviesNominated = useSelector((state) => state.moviesNominated);
+  const { nominatedMovies } = moviesNominated;
+
   const dispatch = useDispatch();
   const nominate = () => {
     dispatch(nominateMovie(movie));
@@ -30,11 +33,13 @@ export default function Movie({ movie }) {
           DETAILS
         </button>
       </Link>
-      <Link to="/nominations" className="link">
-        <button className="movie__button" onClick={nominate}>
-          NOMINATE
-        </button>
-      </Link>
+      {nominatedMovies.length < 5 ? (
+        <Link to="/nominations" className="link">
+          <button className="movie__button" onClick={nominate}>
+            NOMINATE
+          </button>
+        </Link>
+      ) : null}
     </div>
   );
 }
