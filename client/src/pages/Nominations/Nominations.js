@@ -8,6 +8,7 @@ export default function Results() {
   const [modal, setModal] = useState(true);
 
   const moviesNominated = useSelector((state) => state.moviesNominated);
+  console.log(moviesNominated);
   const { nominatedMovies } = moviesNominated;
   console.log(nominatedMovies);
 

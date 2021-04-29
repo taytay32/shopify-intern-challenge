@@ -5,15 +5,17 @@ import Movie from "../../components/Movie/Movie";
 import "./Results.scss";
 
 export default function Results() {
-  // const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   //PULLING FROM STATE
   const searchCall = useSelector((state) => state.searchCall);
   let { loading, error, movies } = searchCall;
   const moviesNominated = useSelector((state) => state.moviesNominated);
-  const { nominatedMovies = [] } = moviesNominated;
+  console.log(moviesNominated);
+  const { nominatedMovies } = moviesNominated;
+  console.log(nominatedMovies);
 
-  // const searchQuery = useSelector((state) => state.searchQ);
-  // console.log(searchQuery);
+  const searchQuery = useSelector((state) => state.searchQ);
+  console.log(searchQuery);
 
   //FILTERING NOMINATIONS FROM SEARCH RESULTS
   let notNominated = [];
@@ -28,8 +30,9 @@ export default function Results() {
     }
   }
   movies = [...notNominated];
+  console.log(movies);
 
-  // FILTER BY MODIFYING SEARCH RESULTS
+  // // FILTER BY MODIFYING SEARCH RESULTS
   // useEffect(() => {
   //   if (movies) {
   //     setFilteredMovies(

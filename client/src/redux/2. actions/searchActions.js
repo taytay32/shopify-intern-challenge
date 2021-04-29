@@ -61,6 +61,6 @@ export const removeNominatedMovie = (movie) => (dispatch, getState) => {
   });
   localStorage.setItem(
     "nominatedMovies",
-    JSON.stringify(getState().moviesNominated)
+    JSON.stringify(getState().moviesNominated.nominatedMovies)
   );
 };

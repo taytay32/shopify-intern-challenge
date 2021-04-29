@@ -14,6 +14,8 @@ export default function Movie({ movie }) {
 
   const moviesNominated = useSelector((state) => state.moviesNominated);
   console.log(moviesNominated);
+  const { nominatedMovies } = moviesNominated;
+  console.log(nominatedMovies);
 
   return (
     <div className="nomination">
