@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 export default function Movie({ movie }) {
   const moviesNominated = useSelector((state) => state.moviesNominated);
   const { nominatedMovies } = moviesNominated;
+  console.log(nominatedMovies);
+  console.log(nominatedMovies.length);
 
   const dispatch = useDispatch();
   const nominate = () => {
@@ -33,13 +35,13 @@ export default function Movie({ movie }) {
           DETAILS
         </button>
       </Link>
-      {nominatedMovies.length < 5 ? (
+      {nominatedMovies.length < 5 && (
         <Link to="/nominations" className="link">
           <button className="movie__button" onClick={nominate}>
             NOMINATE
           </button>
         </Link>
-      ) : null}
+      )}
     </div>
   );
 }

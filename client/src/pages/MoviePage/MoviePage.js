@@ -62,7 +62,7 @@ export default function MoviePage(props) {
                   <strong>Plot: </strong>
                   {movie.Plot}
                 </p>
-                {nominatedMovies < 5 ? (
+                {nominatedMovies.length < 5 && (
                   <Link to="/nominations" className="link">
                     <button
                       className="movieContainer__button"
@@ -71,7 +71,7 @@ export default function MoviePage(props) {
                       NOMINATE
                     </button>
                   </Link>
-                ) : null}
+                )}
                 <button className="movieContainer__button" onClick={goBack}>
                   BACK TO RESULTS
                 </button>
